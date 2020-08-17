@@ -23,7 +23,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
 3. Based on your knowledge of Rails conventions, write a route for a webpage called "game" that takes in a parameter called "guess" with a controller called "main".
 
-  Your answer: GET '/game/guess' = "main#index"
+  Your answer: GET '/game/:guess' = "main#index"
 
 
 
@@ -31,8 +31,8 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
   Your answer:
   rails generate server - this starts the server and creates the webpage
-  rails generate model - this creates a model or table for the object in the database
-  rails generate resource -  this creates the model, view, and controller for an object in the database.
+  rails generate model - this creates a model or table for the object in the database, also a model class, schema, and a migration
+  rails generate resource -  this creates the model, view folder, and controller for an object in the database.
 
   Researched answer:
 
@@ -41,21 +41,22 @@ Then, research the question to expand on your answer. Even if you feel you have 
 5. Consider the Rails routes below. Describe the responsibility of each route.
 
 method="GET"    /users       
-This route retreives and displays all users in the database   
+This route retreives and displays all users in the database, index
 
 method="GET"    /users/1 
-This route retrieves and displays the single user with the id passed in the params. 
+This route retrieves and displays the single user with the id passed in the params. show
 
 method="GET"    /users/new
-This route is the intermediate step between reading and creating a new user in the database. It is used to display the form to gather information before creating the new user.
+This route is the intermediate step between reading and creating a new user in the database. It is used to display the form to gather information before creating the new user. new
 
 method="GET"    /users/edit/1    
+This route is used to edit a user, edit
 
 method="POST"   /users/ 
-This route creates a new user in the database.      
+This route creates a new user in the database.   create   
 
 method="PUT"    /users/1  
-This route updates the single user with the id passed in the params. 
+This route updates the single user with the id passed in the params. update
 
 method="DELETE" /users/1      
-This route deletes the single user with the id passed in the params. 
+This route deletes the single user with the id passed in the params. destroy

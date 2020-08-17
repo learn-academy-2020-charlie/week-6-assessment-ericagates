@@ -41,13 +41,14 @@ const mod3ofNums = (array) => {
   //create new array to store the remainder of the numbers when divided by 3
   let newArray = []
   // loop through array
-  for (let i = 0; i < array.length; i++) {
+  array.filter(value => {
     // find only numbers
-    if (typeof array[i] === "number") {
+    if (typeof value === "number") {
       // add the modulo 3 of each number to the new array
-      newArray.push(array[i] % 3)
+      newArray.push(value % 3)
     }    
-  }
+  })
+  
   return newArray
 }
 
@@ -70,12 +71,13 @@ const noDupes = (array1, array2) => {
   // concatenate the 2 arrays together
   let combinedArray = array1.concat(array2)
   // loop through array
-  for (let i = 0; i < combinedArray.length; i++) {
+  combinedArray.filter((value, index) => {
     // find if the value is the first occurrence of that value in the array
-    if (combinedArray.indexOf(combinedArray[i]) === i){
-      newArray.push(combinedArray[i])
+    if (combinedArray.indexOf(value) === index){
+      newArray.push(value)
     }
-  }
+  })
+  
   return newArray
 }
 

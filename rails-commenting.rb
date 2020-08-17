@@ -8,16 +8,16 @@
 # 1) The controller is the middle man that holds the logic which updates or searches for the information in the model to present to the view
 class BlogPostsController < ApplicationController
   def index
-    # 2) gets all of the blogs posts from the model and send it to the view
+    # 2) declares an instance varibale and gets all of the blogs posts from the model and send it to the view
     @posts = BlogPost.all
   end
 
   def show
-    # 3) finds an individual blog post by passing the id to the model and sends it to the view
+    # 3) declares and instance variable that finds an individual blog post by passing the id to the model and sends it to the view
     @post = BlogPost.find(params[:id])
   end
 
-  # 4) rails convention for the route needed to display a form but doesn't do anything with the model/view. a midway point between C and R in CRUD.
+  # 4) rails convention for the route needed to display a form but doesn't do anything with the model/view. rails will display the 'new' page. a midway point between C and R in CRUD.
   def new
   end
 
@@ -25,7 +25,7 @@ class BlogPostsController < ApplicationController
   end
 
   def create
-    # 5) create a blog post by getting the blog post params from the view and sending it to the model to the model 
+    # 5) create a blog post by getting the blog post info  (strong params) from the view and sending it to the model
     @post = BlogPost.create(blog_post_params)
     if @post.valid?
       redirect_to @post
@@ -44,7 +44,7 @@ class BlogPostsController < ApplicationController
     end
   end
 
-  # 7) makes this function inaccessible outside of the class
+  # 7) keyword that makes this method inaccessible outside of the class
   private
   def blog_post_params
     # 8) manage exactly which columns in the model can be added/updated with information
